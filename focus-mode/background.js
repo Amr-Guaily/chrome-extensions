@@ -45,7 +45,7 @@ chrome.action.onClicked.addListener(async (tab) => {
 function checkTabUrl(tabUrl) {
   for (url of vailableUrls) {
     if (tabUrl.startsWith(url)) return true;
-
-    return false;
   }
+
+  return false;
 }
