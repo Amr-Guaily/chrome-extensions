@@ -5,7 +5,6 @@ const webstore = 'https://developer.chrome.com/docs/webstore';
 const vailableUrls = [extensions, webstore];
 
 chrome.runtime.onInstalled.addListener(async () => {
-  // console.log(chrome.action);
   chrome.action.setBadgeText({
     text: "OFF"
   });
@@ -45,7 +44,7 @@ chrome.action.onClicked.addListener(async (tab) => {
 function checkTabUrl(tabUrl) {
   for (url of vailableUrls) {
     if (tabUrl.startsWith(url)) return true;
-
-    return false;
   }
+
+  return false;
 }
