@@ -19,4 +19,11 @@ chrome.omnibox.onInputChanged.addListener(async (input, suggest) => {
     await chrome.omnibox.setDefaultSuggestion({
         description: 'Enter a chrome API or choose from past searches'
     });
+
+    const { apiSuggestions } = await chrome.storage.local.get('apiSuggestions');
+    const suggestions = apiSuggestions.map(api => {
+        return { content: api, description: `Open chrome.${api} API` };
+    });
+
+    suggest(suggestions);
 });
