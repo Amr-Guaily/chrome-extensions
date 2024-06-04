@@ -6,6 +6,12 @@
     "service_worker": "service-worker.js",
     "type": "module"
   },
+  "content_scripts": [
+    {
+      "matches": ["https://developer.chrome.com/docs/extensions/reference/*"],
+      "js": ["content.js"]
+    }
+  ],
   "permissions": ["storage"],
   "host_permissions": ["https://extension-tips.glitch.me/*"],
   "minimum_chrome_version": "102",
