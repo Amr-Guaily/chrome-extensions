@@ -30,7 +30,7 @@ chrome.omnibox.onInputChanged.addListener(async (input, suggest) => {
 });
 
 // After the user selects a suggestion => open the corresponding Chrome API referance page.
-chrome.omnibox.OnInputEntered.addListener((input) => {
+chrome.omnibox.onInputEntered.addListener((input) => {
     chrome.tabs.create({ url: URL_CHROME_EXTENSIONS_DOC + input });
 
     // save the latest key word
@@ -43,5 +43,5 @@ async function updateHistory(input) {
     apiSuggestions.unshift(input);
     apiSuggestions.splice(NUMBER_OF_PREVIOUS_SEARCHES);
 
-    await chrome.storage.local.set({ apiSuggestions });
+    return await chrome.storage.local.set({ apiSuggestions });
 }
