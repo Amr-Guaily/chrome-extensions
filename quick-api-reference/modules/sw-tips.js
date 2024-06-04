@@ -17,8 +17,8 @@ async function createAlarm() {
     const alarm = await chrome.alarms.get(ALARM_NAME);
     if (typeof alarm === 'undefined') {
         chrome.alarms.create(ALARM_NAME, {
-            delayInminutes: 1,
-            periodInMinutes: 1400
+            delayInMinutes: 1,
+            periodInMinutes: 1440
         });
 
         /*
