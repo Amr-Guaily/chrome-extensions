@@ -17,6 +17,14 @@
     nav.append(tipWidget);
 })();
 
+
+/**
+ * WHY creating a DOM element from an HTML string using a function like this is might be better than
+   using `innerHTML` to insert HTML content directly into the document!?
+
+ ## using `createDomELement` provides a more secure, maintainable, and more efficient way to handle dynamic HTML content..
+    It seperates concerns, improves, error handling, and can be safer against XSS attacks..
+ */
 function createDomElement(html) {
     const dom = new DOMParser().parseFromString(html, 'text/html');
     return dom.body.firstElementChild;
